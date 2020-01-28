@@ -1,6 +1,7 @@
 {
   "name": "express-boilerplate",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "This is boilerplate for express.js application written in typescript, it's supposed to accomodate to start new project using express.",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -11,6 +12,27 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.1",
+    "mysql2": "^2.1.0",
+    "redis": "^2.8.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "@types/dotenv": "^8.2.0",
+    "@types/gapi": "0.0.39",
+    "@types/gapi.client.oauth2": "^2.0.1",
+    "@types/node": "^13.1.8",
+    "@types/redis": "^2.8.14",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.0.0",
+    "ts-jest": "^24.3.0",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.7.5"
   }
 }
