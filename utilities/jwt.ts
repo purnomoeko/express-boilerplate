@@ -1,20 +1,20 @@
 import { readFileSync } from 'fs';
-import jwt from 'jsonwebtoken';
 
 import { config } from 'dotenv';
+import { sign, decode, verify } from 'jsonwebtoken';
 
 // You can generate public and private key here http://travistidwell.com/jsencrypt/demo/
 class JWT {
-    private privateKey;
-    private publicKey;
+    private privateKey: string;
+    private publicKey: string;
     constructor() {
         const { parsed } = config();
-        this.privateKey = readFileSync(parsed.PRIVATE_KEY);
-        this.publicKey = readFileSync(parsed.PUBLIC_KEY);
+        this.privateKey = readFileSync(parsed.PRIVATE_KEY).toString();
+        this.publicKey = readFileSync(parsed.PUBLIC_KEY).toString();
     }
 
     sign(userId: string, phoneNumber: string, role = "Regular", expiresIn = "30d") {
-        const token = jwt.sign(
+        const token = sign(
             { userId, phoneNumber, role },
             this.privateKey, {
                 issuer: userId,
@@ -26,19 +26,13 @@ class JWT {
         return token;
     }
 
-    verify(token: string, userId: string, phoneNumber: string) {
-        const result = jwt.verify(token, this.publicKey, {
-            issuer: userId,
-            subject: "signIn",
-            audience: phoneNumber,
-            expiresIn: "30d",
-            algorithm: "RS256"
-        });
+    verify(token: string) {
+        const result = verify(token, this.publicKey);
         return result;
     }
 
     decode(token: string) {
-        return jwt.decode(token);
+        return decode(token);
     }
 }
 

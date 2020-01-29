@@ -28,6 +28,7 @@
     "@types/dotenv": "^8.2.0",
     "@types/gapi": "0.0.39",
     "@types/gapi.client.oauth2": "^2.0.1",
+    "@types/jsonwebtoken": "^8.3.7",
     "@types/morgan": "^1.7.37",
     "@types/node": "^13.1.8",
     "@types/redis": "^2.8.14",
